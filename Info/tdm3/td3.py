@@ -165,10 +165,7 @@ def Blur(img):
 
             newImg.putpixel((x,y),(meanR,meanG,meanB))
 
-    img = newImg
-
-    img.show()
-
+    return newImg
 
 
 def PixelAround(coord,img):
@@ -195,6 +192,29 @@ def PixelAround(coord,img):
         l.append(img.getpixel((x-1,y+1)))
 
     return l
+
+bluredImg = Blur(Image.open("teapot.png"))
+bluredImg.show()
+
+
+
+def Blur2(img):
+	(w,h)=img.size
+	for x in range(w-1):
+		for y in range(h-1):
+			(r,g,b) = (0,0,0)
+			for i  in range(-1,2):
+				for j in range(-1,2):
+					(r1,g1,b1) = img.getpixel((x+i,y+j))
+					r+=r1
+					g+=g1
+					b+=b1
+			r=r//9
+			g=g//9
+			b=b//9
+			img.putpixel((x,y),(r,g,b))
+
+
 
 
 def OldOneCircle(img,center,radius,color):
@@ -249,25 +269,35 @@ Circle(circleImg,(250,250),100,(255,255,255))
 
 def Zoom(img,factor):
     (w,h)=img.size
-    newImg = Image.new("RGB",(w*factor,h*factor))
+    newImg = Image.new("RGB",(int(w*factor),int(h*factor)))
 
     for x in range(w):
         for y in range(h):
             color = img.getpixel((x,y))
             for n in range(factor):
                 newImg.putpixel((factor*x+n,factor*y+n),color)
-    img = newImg
 
-Zoom(circleImg,2)
-circleImg.show()
+    return newImg
 
 
 
 
 
-#zoomImg = Image.open("teapot.png")
-#Zoom(zoomImg,2)
 
-#Blur(zoomImg)
+
+
+zoomImg = Image.open("teapot.png")
+zoomedImg = Zoom(zoomImg,2)
+zoomedImg.show()
+'''
+or
+zoomImg = Image.open("teapot.png")
+Zoom(zoomImg,2).show()
+
+because Zoom(img,factor) returns an image so you can use image inherited methods as show() 
+'''
+
+
+#Blur(zoomImg) 
 
 
