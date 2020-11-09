@@ -194,7 +194,7 @@ def PixelAround(coord,img):
     return l
 
 bluredImg = Blur(Image.open("teapot.png"))
-bluredImg.show()
+#bluredImg.show()
 
 
 
@@ -288,7 +288,7 @@ def Zoom(img,factor):
 
 zoomImg = Image.open("teapot.png")
 zoomedImg = Zoom(zoomImg,2)
-zoomedImg.show()
+#zoomedImg.show()
 '''
 or
 zoomImg = Image.open("teapot.png")
@@ -297,7 +297,28 @@ Zoom(zoomImg,2).show()
 because Zoom(img,factor) returns an image so you can use image inherited methods as show() 
 '''
 
+def Rotate90(img):
+    (w,h) = img.size
+    flippedImage = Image.new("RGB",(h,w))
 
-#Blur(zoomImg) 
+    for x in range(w):
+        for y in range(h):
+            flippedImage.putpixel((y,x),img.getpixel((x,y)))
+    return flippedImage
+
+#Rotate90(Image.open("teapot.png")).show()
+
+def HorizontalFlip(img):
+    (w,h) = img.size
+    flippedImage = Image.new("RGB",(w,h))
+    for x in range(w):
+        for y in range(h):
+            flippedImage.putpixel((x,y),img.getpixel(((w-1)-x,y)))
+    return flippedImage
+
+Image.open("teapot.png").show()
+HorizontalFlip(Image.open("teapot.png")).show()
+
+
 
 
