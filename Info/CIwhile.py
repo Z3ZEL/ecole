@@ -65,7 +65,7 @@ def Mystery2(n):
 
 #print(Mystery2(11))
 
-#question 3.2
+#question 3.3
 def IsPrime(n):
     if not(n%2):
         return False
@@ -74,4 +74,16 @@ def IsPrime(n):
         i+=2
     return i*i>n
 
-print(IsPrime(13))
+#print(IsPrime(13))
+
+#question 3.4
+def NextPrime(n):
+    p = n+1
+    if not(p%2):
+        p+=1
+    while not(IsPrime(p)):
+        p+=2
+    return p
+
+
+print(NextPrime(13))
