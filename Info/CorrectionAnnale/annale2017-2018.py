@@ -95,6 +95,9 @@ mais pas l'une * l'autre car les deux ne sont pas imbriqués.
 Ensuite dans chacune d'elle il y a 2 instructions, deux opérations en somme, que nous
 allons considérer comme élémentaire. Il y a donc 2*w + 2*h instructions or nous allons répéter cela
 2 fois donc 2*(2*w + 2*h). La complexité de ma fonction est donc de 4w+4h.
+
+Correction de la prof : C'est à peu près ça. On va dire en général qu'elle est de complexité de w+h 
+tout facteurs est acceptés si tu le justifie correctement.
 '''
 
 #question 3.3
