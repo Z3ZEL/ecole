@@ -85,5 +85,30 @@ def NextPrime(n):
         p+=2
     return p
 
-
 print(NextPrime(13))
+
+
+
+def SquareRoot(n):
+    s=0
+    nb=1
+    resp=0
+    while s<n:
+        s+=nb
+        nb+=2
+        resp+=1
+    if s!=n:
+        resp-=1
+    return resp
+
+print(SquareRoot(12))
+
+def LogarithmA(a,n):
+    k=1
+    p=a
+    while(p<=n):
+        p*=a
+        k+=1
+    return k-1 
+
+print(LogarithmA(10,1))

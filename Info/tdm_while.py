@@ -76,6 +76,8 @@ def SquareRoot(n):
         i+=1
     return -1
 
+'''pas la bonne méthode voir CI While'''
+
 #print(SquareRoot(9))
 
 #question 3.2
@@ -92,3 +94,5 @@ def Power(a,k):
         m*=a
     return m
 
+
+print(Logarithm(5,85))
